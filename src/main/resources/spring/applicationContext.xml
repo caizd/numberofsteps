@@ -19,10 +19,9 @@
           				http://www.springframework.org/schema/security/spring-security-4.2.xsd">
  
     <context:property-placeholder location="classpath:config.properties"/>  
-	<context:component-scan base-package="com.saofenbao.jifenshangcheng.service" />
-	<context:component-scan base-package="com.saofenbao.jifenshangcheng.rest.resource" />
-	<context:component-scan base-package="com.saofenbao.jifenshangcheng.rest.filter" />
-	<context:component-scan base-package="com.saofenbao.jifenshangcheng.component" />
+	<context:component-scan base-package="cn.caizhongdong.numberofsteps.service" />
+	<context:component-scan base-package="cn.caizhongdong.numberofsteps.rest.resource" />
+	<context:component-scan base-package="cn.caizhongdong.numberofsteps.rest.filter" />
     <mybatis:scan base-package="cn.caizhongdong.numberofsteps.dao" />
 
 
