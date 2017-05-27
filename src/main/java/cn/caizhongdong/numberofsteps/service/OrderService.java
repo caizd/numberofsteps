@@ -1,11 +1,8 @@
+/*
 package cn.caizhongdong.numberofsteps.service;
 
 import cn.caizhongdong.numberofsteps.dao.OrderDao;
 import cn.caizhongdong.numberofsteps.dao.VendorGiftDao;
-import cn.caizhongdong.numberofsteps.domain.ConsigneeAddress;
-import cn.caizhongdong.numberofsteps.domain.Order;
-import cn.caizhongdong.numberofsteps.domain.OrderItem;
-import cn.caizhongdong.numberofsteps.domain.VendorGift;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,3 +76,4 @@ public class OrderService {
 		return orderDao.getOrderById(id);
 	}
 }
+*/

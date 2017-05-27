@@ -1,13 +1,9 @@
 package cn.caizhongdong.numberofsteps.rest.resource;
 
 
-import cn.caizhongdong.numberofsteps.domain.Order;
-import cn.caizhongdong.numberofsteps.domain.annotation.ValidOrder;
 import cn.caizhongdong.numberofsteps.rest.exception.GenericException;
-import cn.caizhongdong.numberofsteps.service.OrderService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 
@@ -15,7 +11,6 @@ import javax.annotation.security.DenyAll;
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
@@ -33,8 +28,8 @@ public class SampleResource {
 
 	private @Value("${fileFolder}") String fileFolder;
 
-	@Autowired
-	private OrderService orderService;
+//	@Autowired
+//	private OrderService orderService;
 
 
 	@Path("/roles/user")
@@ -84,33 +79,31 @@ public class SampleResource {
 				log.trace("SC " + sc.getAuthenticationScheme() + ", " + (sc.getUserPrincipal() == null ? "user is null" : sc.getUserPrincipal().getName() ));
 			}
 		}
-		Order order = orderService.createARandomOrder();
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		result.put("order", order);
 		result.put("hello", "Hello, world.");
 		return result;
 	}
 
-	@PermitAll
-	@Path("/order/{id:\\d+}/")
-	@GET
-	public Map<String, Object> getOrder(@PathParam("id") int id, @Context HttpServletRequest req, @Context SecurityContext sc)
-			throws GenericException {
-		if (log.isTraceEnabled()) {
-			log.trace("readArray()" + id + "; SecurityContext is "
-					+ sc.getClass().getName() + "; user="
-					+ sc.getUserPrincipal() + "  "
-					+ sc.getUserPrincipal().getClass().getName());
-		}
-		Order order = orderService.retrieveOrder(id);
-		HashMap<String, Object> result = new HashMap<String, Object>();
-		result.put("order", order);
-		result.put("otherthings", "no");
-		// result.put("user", requestContext.getUser().getName() + "," +
-		// requestContext.getUser().getId());
-		result.put("user", sc.getUserPrincipal());
-		return result;
-	}
+//	@PermitAll
+//	@Path("/order/{id:\\d+}/")
+//	@GET
+//	public Map<String, Object> getOrder(@PathParam("id") int id, @Context HttpServletRequest req, @Context SecurityContext sc)
+//			throws GenericException {
+//		if (log.isTraceEnabled()) {
+//			log.trace("readArray()" + id + "; SecurityContext is "
+//					+ sc.getClass().getName() + "; user="
+//					+ sc.getUserPrincipal() + "  "
+//					+ sc.getUserPrincipal().getClass().getName());
+//		}
+//		Order order = orderService.retrieveOrder(id);
+//		HashMap<String, Object> result = new HashMap<String, Object>();
+//		result.put("order", order);
+//		result.put("otherthings", "no");
+//		// result.put("user", requestContext.getUser().getName() + "," +
+//		// requestContext.getUser().getId());
+//		result.put("user", sc.getUserPrincipal());
+//		return result;
+//	}
 
 	/**
 	 * 这里使用了两种验证方式@Valid使用的是Order类内部的注解进行验证。
@@ -120,23 +113,23 @@ public class SampleResource {
 	 * @param order
 	 * @return
 	 */
-	@PermitAll
-	@POST
-	public Map<String, Object> createOrder(@Valid @ValidOrder Order order) {
-		if (log.isTraceEnabled()) {
-			log.trace("createSomething......" + order.toString() + "; ");
-		}
-		
-		//TODO:设置一些订单信息，例如订单用户，
-		order.setStatus(0);
-		//TODO:做检查，例如检查用户是否可以购买订购的商品，收件地址是否合法等
-		Order savedOrder = orderService.create(order);
-		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("jifenLeft", 888);
-		result.put("name", "");
-		result.put("order", savedOrder);
-		return result;
-	}
+//	@PermitAll
+//	@POST
+//	public Map<String, Object> createOrder(@Valid @ValidOrder Order order) {
+//		if (log.isTraceEnabled()) {
+//			log.trace("createSomething......" + order.toString() + "; ");
+//		}
+//
+//		//TODO:设置一些订单信息，例如订单用户，
+//		order.setStatus(0);
+//		//TODO:做检查，例如检查用户是否可以购买订购的商品，收件地址是否合法等
+//		Order savedOrder = orderService.create(order);
+//		Map<String, Object> result = new HashMap<String, Object>();
+//		result.put("jifenLeft", 888);
+//		result.put("name", "");
+//		result.put("order", savedOrder);
+//		return result;
+//	}
 
 	@Path("/array/{id:\\d+}/")
 	@GET

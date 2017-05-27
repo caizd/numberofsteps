@@ -42,10 +42,10 @@ public class AppConfig extends ResourceConfig {
 		register(GenericExceptionMapper.class);
 		register(ValidationExceptionMapper.class);
 		//swagger
-		Set<Class<?>> resources = new HashSet<>();
-		resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
-		resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
-		register(resources);
+//		Set<Class<?>> resources = new HashSet<>();
+//		resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
+//		resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
+//		register(resources);
 //		register(ValidationConfigurationContextResolver.class);
 	}
 }

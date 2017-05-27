@@ -1,8 +1,7 @@
+/*
 package cn.caizhongdong.numberofsteps.domain.validator;
 
 
-import cn.caizhongdong.numberofsteps.domain.Order;
-import cn.caizhongdong.numberofsteps.domain.OrderItem;
 import cn.caizhongdong.numberofsteps.domain.annotation.ValidOrder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,3 +37,4 @@ public class OrderValidator implements ConstraintValidator<ValidOrder, Order> {
 	}
 
 }
+*/

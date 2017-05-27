@@ -1,3 +1,4 @@
+/*
 package cn.caizhongdong.numberofsteps.domain.annotation;
 
 
@@ -18,3 +19,4 @@ public @interface ValidOrder {
     Class<?>[] groups() default {};  
     Class<? extends Payload>[] payload() default {}; 
 }
+*/

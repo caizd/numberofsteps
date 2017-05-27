@@ -1,6 +1,6 @@
+/*
 package cn.caizhongdong.numberofsteps.dao;
 
-import cn.caizhongdong.numberofsteps.domain.Order;
 import org.apache.ibatis.annotations.Param;
 
 public interface OrderDao {
@@ -11,3 +11,4 @@ public interface OrderDao {
 	
 	public Order getOrderById(int id);
 }
+*/
