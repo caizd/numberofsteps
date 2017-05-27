@@ -24,27 +24,25 @@
 	<context:component-scan base-package="com.saofenbao.jifenshangcheng.rest.filter" />
 	<context:component-scan base-package="com.saofenbao.jifenshangcheng.component" />
     <mybatis:scan base-package="cn.caizhongdong.numberofsteps.dao" />
-	
-  
+
+
     <tx:annotation-driven transaction-manager="transactionManager" />
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-         <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:mybatis.xml"/>
     </bean>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver"/>
-        <property name="url" value="jdbc:jtds:sqlserver://192.168.1.235:1433/jifenshangcheng"/>
-        <property name="username" value="sa"/>
-        <property name="password" value="u8soft"/>
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://47.88.100.165:5432/numberofsteps?stringtype=unspecified"/>
+        <property name="username" value="pgdbo"/>
+        <property name="password" value="920908"/>
+        <property name="maxTotal" value="10"></property>
+        <property name="maxIdle" value="5"></property>
+        <property name="maxWaitMillis" value="5000"></property>
     </bean>
 
-    <!-- <bean id="user" class="com.saofenbao.jifenshangcheng.component.User" scope="request">
-       <aop:scoped-proxy proxy-target-class="false" />
-    </bean>
-     -->
 </beans>
